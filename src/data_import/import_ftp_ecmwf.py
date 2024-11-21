@@ -1,13 +1,21 @@
 from datetime import datetime, timedelta
+from dotenv import load_dotenv
 import ftplib
 import os
 import logging
 import yaml
 
+load_dotenv()
+
 def load_config(config_path="shared/config.yaml"):
     """Load configuration from YAML file."""
     with open(config_path, "r") as file:
-        return yaml.safe_load(file)
+        config=yaml.safe_load(file)
+        
+    config['ftp']['username'] = os.getenv("FTP_USERNAME")
+    config['ftp']['password'] = os.getenv("FTP_PASSWORD")
+    config['ftp']['server'] = os.getenv("FTP_SERVER")
+    return config
 
 def setup_logger(log_file="logs/ftp_download.log"):
     """Set up a logger for the script."""
