@@ -34,11 +34,9 @@ def download_ftp_files(ftp_config, logger):
     remote_directory = ftp_config["remote_directory"]
     local_directory = ftp_config["local_directory"]
 
-    # Ensure local directory exists
     if not os.path.exists(local_directory):
         os.makedirs(local_directory)
 
-    # Path to the log file
     downloaded_files_log = "logs/downloaded_files.txt"
 
     # Load previously downloaded files
@@ -53,19 +51,14 @@ def download_ftp_files(ftp_config, logger):
     date_list = [(today - timedelta(days=i)).strftime("%Y%m%d") for i in range(7)]
 
     try:
-        # Connect to FTP server
         ftp = ftplib.FTP(server)
         ftp.login(user=username, passwd=password)
         logger.info(f"Connected to FTP server: {server}")
 
-        # Change to the remote directory
         ftp.cwd(remote_directory)
-        logger.info(f"Changed to directory: {remote_directory}")
 
-        # List files in the remote directory
         files = ftp.nlst()
 
-        # Process files for the last 7 days
         for date in date_list:
             preferred_file = f"ECMWF_new_3d.0125.{date}1200.PREC.nc"
             alternate_file = f"ECMWF_new_3d.0125.{date}0000.PREC.nc"
@@ -87,7 +80,6 @@ def download_ftp_files(ftp_config, logger):
                 else:
                     logger.info(f"File not available on FTP: {file_name}")
 
-        # Save updated list of downloaded files
         with open(downloaded_files_log, "w") as f:
             f.write("\n".join(downloaded_files))
 
@@ -98,14 +90,11 @@ def download_ftp_files(ftp_config, logger):
         raise
 
 def main():
-    # Load configuration
     config = load_config()
     ftp_config = config["ftp"]
 
-    # Set up logging
     logger = setup_logger()
 
-    # Start downloading files
     download_ftp_files(ftp_config, logger)
 
 if __name__ == "__main__":

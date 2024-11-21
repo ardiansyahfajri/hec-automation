@@ -4,3 +4,25 @@ ftp:
   password: ${FTP_PASSWORD}
   remote_directory: "/BMKG_modified"
   local_directory: "data/raw"
+
+models:
+  model1:
+    log_file: "logs/model1_import.log"
+    processed_dates_log: "logs/model1_processed_dates.txt"
+    base_dir: "data/model1"
+    clip_shp: "data/model1/clip.shp"
+    destination: "data/model1/output.dss"
+    targetWkt: 32751
+    partA: "UTM51S"
+  model2:
+    log_file: "logs/model2_import.log"
+    processed_dates_log: "logs/model2_processed_dates.txt"
+    base_dir: "data/model2"
+    clip_shp: "data/model2/clip.shp"
+    destination: "data/model2/output.dss"
+    targetWkt: 32648
+    partA: "UTM48N"
+shared:
+  data_cutoff_time: "12:35"
+
+
