@@ -22,7 +22,10 @@ models:
     destination: "data/model2/output.dss"
     targetWkt: 32648
     partA: "UTM48N"
+
 shared:
+  vortex_home: "apps/vortex"
   data_cutoff_time: "12:35"
+
 
 

@@ -167,3 +167,5 @@ __pycache__/
 .env
 data/
 logs/
+.jython_cache
+apps/
