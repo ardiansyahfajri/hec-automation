@@ -1,0 +1,6 @@
+ftp:
+  server: "103.211.51.248"
+  username: "irisdss"
+  password: "Pupriris2021!"
+  remote_directory: "/BMKG_modified"
+  local_directory: "data/raw"

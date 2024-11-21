@@ -16,7 +16,7 @@ This repository contains scripts to automate rainfall visualization, data import
 
 #### **Clone the Repository**
 ```bash
-git clone https://github.com/your-username/hec-automation.git
+git clone https://github.com/ardiansyahfajri/hec-automation.git
 cd hec-automation
 ```
 
