@@ -14,6 +14,8 @@ models:
     destination: "data/model1/output.dss"
     targetWkt: 32751
     partA: "UTM51S"
+    basin_shp: "data/model1/basin.shp"
+    animation_output: "data/model1/animation"
   model2:
     log_file: "logs/model2_import.log"
     processed_dates_log: "logs/model2_processed_dates.txt"
@@ -22,9 +24,15 @@ models:
     destination: "data/model2/output.dss"
     targetWkt: 32648
     partA: "UTM48N"
+    basin_shp: "data/model2/basin.shp"
+    animation_output: "data/model2/animation"
+
 
 shared:
   vortex_home: "apps/vortex"
+  hms_home: "apps/HEC-HMS-4.10"
+  frame_duration: "500"
+  output_format: "gif"
   data_cutoff_time: "12:35"
 
 
