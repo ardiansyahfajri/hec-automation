@@ -14,7 +14,8 @@ models:
     targetWkt: 32751
     partA: "UTM51S"
     basin_shp: "data/model/tilong/basin_tilong/basin_tilong.shp"
-    animation_output: "data/tilong/animation"
+    animation_output: "data/model/tilong/animation"
+    projected_crs: "EPSG:32751"
   # model2:
   #   log_file: "logs/model2_import.log"
   #   processed_dates_log: "logs/model2_processed_dates.txt"
@@ -30,10 +31,7 @@ models:
 shared:
   vortex_home: "apps/vortex"
   hms_home: "apps/HEC-HMS-4.10"
-  frame_duration: "500"
-  output_format: "gif"
   raw_folder: "data/raw"
   data_cutoff_time: "12:35"
-
 
 
