@@ -107,7 +107,7 @@ def process_model_rain_animation(model_name, model_config):
     basin_shp = model_config["basin_shp"]
 
     # Shared settings
-    frame_duration = 200  # Hardcoded frame duration for this example
+    frame_duration = 500  # Hardcoded frame duration for this example
 
     # Determine yesterday's and today's date
     yesterday = (datetime.now() - timedelta(days=1)).strftime('%Y%m%d')

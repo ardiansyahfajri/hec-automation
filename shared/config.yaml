@@ -6,26 +6,25 @@ ftp:
   local_directory: "data/raw"
 
 models:
-  model1:
-    log_file: "logs/model1_import.log"
-    processed_dates_log: "logs/model1_processed_dates.txt"
-    base_dir: "data/model1"
-    clip_shp: "data/model1/clip.shp"
-    destination: "data/model1/output.dss"
+  tilong:
+    log_file: "logs/tilong_import.log"
+    processed_dates_log: "logs/tilong_processed_dates.txt"
+    clip_shp: "data/model/tilong/clip_tilong/MANIKIN  BAKI_51S.shp"
+    destination: "data/model/tilong/model_tilong/data/ECMWF.dss"
     targetWkt: 32751
     partA: "UTM51S"
-    basin_shp: "data/model1/basin.shp"
-    animation_output: "data/model1/animation"
-  model2:
-    log_file: "logs/model2_import.log"
-    processed_dates_log: "logs/model2_processed_dates.txt"
-    base_dir: "data/model2"
-    clip_shp: "data/model2/clip.shp"
-    destination: "data/model2/output.dss"
-    targetWkt: 32648
-    partA: "UTM48N"
-    basin_shp: "data/model2/basin.shp"
-    animation_output: "data/model2/animation"
+    basin_shp: "data/model/tilong/basin_tilong/basin_tilong.shp"
+    animation_output: "data/tilong/animation"
+  # model2:
+  #   log_file: "logs/model2_import.log"
+  #   processed_dates_log: "logs/model2_processed_dates.txt"
+  #   base_dir: "data/model2"
+  #   clip_shp: "data/model2/clip.shp"
+  #   destination: "data/model2/output.dss"
+  #   targetWkt: 32648
+  #   partA: "UTM48N"
+  #   basin_shp: "data/model2/basin.shp"
+  #   animation_output: "data/model2/animation"
 
 
 shared:
@@ -33,6 +32,7 @@ shared:
   hms_home: "apps/HEC-HMS-4.10"
   frame_duration: "500"
   output_format: "gif"
+  raw_folder: "data/raw"
   data_cutoff_time: "12:35"
 
 
