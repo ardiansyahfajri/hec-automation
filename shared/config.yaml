@@ -7,15 +7,28 @@ ftp:
 
 models:
   tilong:
+  # General
+    project_path: "data/model/tilong/model_tilong/Model_DAS_Tilong.hms"
     log_file: "logs/tilong_import.log"
     processed_dates_log: "logs/tilong_processed_dates.txt"
-    clip_shp: "data/model/tilong/clip_tilong/MANIKIN  BAKI_51S.shp"
+
+  # Spatial
     destination: "data/model/tilong/model_tilong/data/ECMWF.dss"
-    targetWkt: 32751
-    partA: "UTM51S"
+    clip_shp: "data/model/tilong/clip_tilong/MANIKIN  BAKI_51S.shp"
     basin_shp: "data/model/tilong/basin_tilong/basin_tilong.shp"
-    animation_output: "data/model/tilong/animation"
+    partA: "UTM51S"
     projected_crs: "EPSG:32751"
+    targetWkt: 32751
+
+  # Animation
+    animation_output: "data/model/tilong/animation"
+
+  # Forecast
+    forecast_paths:
+      - ["data/model/tilong/model_tilong/forecast/PrediksiECMWF.forecast", "PrediksiECMWF"]
+    start_time: "18:00"
+    forecast_time: "08:00"
+    end_time: "17:00"
   # model2:
   #   log_file: "logs/model2_import.log"
   #   processed_dates_log: "logs/model2_processed_dates.txt"
