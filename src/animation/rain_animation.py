@@ -95,20 +95,30 @@ def create_animation(data, title, save_path, extent, basin_shp, cmap, norm, logg
         cbar_ax = fig.add_axes([0.15, 0.1, 0.7, 0.03])
         fig.colorbar(cax, cax=cbar_ax, orientation='horizontal', label='Rainfall (mm)', boundaries=norm.boundaries, ticks=norm.boundaries)
 
-        ax.text(
-            0.5, 1.08,
-            title,
-            fontsize=20,
-            ha="center",
-            transform=ax.transAxes,
-            )
-        ax.set_xlabel("Longitude")
-        ax.set_ylabel("Latitude")
+        # Add longitude and latitude gridlines (only left and bottom)
+        gl = ax.gridlines(
+            draw_labels=True,
+            crs=crs_proj,
+            linewidth=0.5,
+            color="gray",
+            alpha=0.7,
+            linestyle="--"
+        )
+        gl.top_labels = False
+        gl.right_labels = False
+        gl.left_labels = True
+        gl.bottom_labels = True
+        gl.xlabel_style = {"fontsize": 10}
+        gl.ylabel_style = {"fontsize": 10}
 
+        ax.set_xlabel("Longitude", fontsize=14)
+        ax.set_ylabel("Latitude", fontsize=14)
+        
+        
         def update(frame):
             ax.set_title(
-                f"{pd.to_datetime(data[time_dim].values[frame]).strftime('%d %B %Y %H:%M')}",
-                fontsize=16,
+                f"{title}\n{pd.to_datetime(data[time_dim].values[frame]).strftime('%d %B %Y %H:%M')}",
+                fontsize=18,
                 pad=20
             )
             frame_data = data["rain"].isel({time_dim: frame})
