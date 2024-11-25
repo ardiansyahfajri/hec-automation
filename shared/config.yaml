@@ -11,9 +11,9 @@ models:
     project_path: "data/model/tilong/model_tilong/Model_DAS_Tilong.hms"
     log_file: "logs/tilong_import.log"
     processed_dates_log: "logs/tilong_processed_dates.txt"
+    destination: "data/model/tilong/model_tilong/data/ECMWF.dss"
 
   # Spatial
-    destination: "data/model/tilong/model_tilong/data/ECMWF.dss"
     clip_shp: "data/model/tilong/clip_tilong/MANIKIN  BAKI_51S.shp"
     basin_shp: "data/model/tilong/basin_tilong/basin_tilong.shp"
     partA: "UTM51S"
@@ -29,6 +29,7 @@ models:
     start_time: "18:00"
     forecast_time: "08:00"
     end_time: "17:00"
+
   # model2:
   #   log_file: "logs/model2_import.log"
   #   processed_dates_log: "logs/model2_processed_dates.txt"
@@ -42,8 +43,6 @@ models:
 
 
 shared:
-  vortex_home: "apps/vortex"
-  hms_home: "apps/HEC-HMS-4.10"
   raw_folder: "data/raw"
   data_cutoff_time: "12:35"
 
