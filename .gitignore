@@ -169,3 +169,4 @@ data/
 logs/
 .jython_cache
 apps/
+test.ipynb
