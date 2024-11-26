@@ -56,8 +56,12 @@ def find_yesterdays_file(raw_folder, yesterday, logger):
         file_path = os.path.join(raw_folder, pattern)
         logger.info(f"Checking for file: {file_path}")
         if os.path.exists(file_path):
+            logger.info(f"File found: {file_path}")
             return file_path
+
+    logger.warning(f"No file found for date {yesterday} in folder {raw_folder}")
     return None
+
 
 
 def create_animation(data, title, save_path, extent, basin_shp, cmap, norm, logger):
@@ -139,7 +143,8 @@ def create_animation(data, title, save_path, extent, basin_shp, cmap, norm, logg
 
 def process_model_rain_animation(model_name, model_config, shared_config, cmap, norm):
     """Generate rainfall animation for a specific model."""
-    log_file = f"logs/{model_name}_animation.log"
+    log_file = os.path.join(model_config["animation_output"], f"{model_name}_animation.log")
+    os.makedirs(os.path.dirname(log_file), exist_ok=True)
     logger = setup_logger(log_file)
 
     raw_folder = shared_config.get("raw_folder", "data/raw")

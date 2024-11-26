@@ -8,6 +8,7 @@ ftp:
 models:
   tilong:
   # General
+    name: "tilong"
     project_path: "data/model/tilong/model_tilong/Model_DAS_Tilong.hms"
     log_file: "logs/tilong_import.log"
     processed_dates_log: "logs/tilong_processed_dates.txt"
@@ -20,8 +21,10 @@ models:
     projected_crs: "EPSG:32751"
     targetWkt: 32751
 
-  # Animation
-    animation_output: "data/model/tilong/animation"
+  # Rainfall
+    animation_output: "data/output/tilong/animation"
+    thiessen_excel: "data/model/tilong/thiessen/tilong.xls"
+    thiessen_output: "data/output/tilong/thiessen/"
 
   # Forecast
     forecast_paths:
