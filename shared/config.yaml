@@ -9,6 +9,7 @@ models:
   tilong:
   # General
     name: "tilong"
+    dam_id: "177"
     project_path: "data/model/tilong/model_tilong/Model_DAS_Tilong.hms"
     log_file: "logs/tilong_import.log"
     processed_dates_log: "logs/tilong_processed_dates.txt"
@@ -48,5 +49,7 @@ models:
 shared:
   raw_folder: "data/raw"
   data_cutoff_time: "12:35"
+  username: "api-user"
+  password: ')pQ00Aa}x>RB;2?,Z}\f!l;l9!F3T=%2'
 
 
