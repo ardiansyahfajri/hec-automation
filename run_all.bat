@@ -12,6 +12,9 @@ if %errorlevel% neq 0 goto :error
 python src\animation\rain_animation.py
 if %errorlevel% neq 0 goto :error
 
+python src\get_dam_data\dam_data.py
+if %errorlevel% neq 0 goto :error
+
 REM Run the batch scripts
 call src\data_import\import_automation.bat
 if %errorlevel% neq 0 goto :error

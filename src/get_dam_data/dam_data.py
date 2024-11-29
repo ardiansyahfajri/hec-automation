@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime
 import yaml
 import os
+from dotenv import load_dotenv
 
 # Authentication endpoint
 AUTH_URL = "https://sinbad.sda.pu.go.id/API/PUB/v1/login/"
@@ -15,6 +16,10 @@ OUTFLOW_URL = BASE_URL + "OUTFLOW/"
 
 # Path to the configuration YAML file
 CONFIG_PATH = "shared/config.yaml"
+
+load_dotenv()
+USERNAME = os.getenv("API_USERNAME")
+PASSWORD = os.getenv("API_PASSWORD")
 
 # Function to authenticate and retrieve token
 def authenticate(username, password):
@@ -88,11 +93,9 @@ if __name__ == "__main__":
 
     # Extract shared settings
     models_config = config["models"]
-    username = config["shared"]["username"]
-    password = config["shared"]["password"]
 
     # Authenticate and get token
-    token = authenticate(username, password)
+    token = authenticate(USERNAME, PASSWORD)
 
     # Get today's date range
     start_date, end_date = get_today_date_range()
@@ -123,5 +126,10 @@ if __name__ == "__main__":
 
         # Save to CSV
         csv_filename = os.path.join(output_path, f"{model_name}.csv")
+        if os.path.exists(csv_filename):
+            # Load existing data
+            existing_data = pd.read_csv(csv_filename)
+            # Append new data
+            result_df = pd.concat([existing_data, result_df]).drop_duplicates()
+        # Save back to CSV
         result_df.to_csv(csv_filename, index=False)
-        print(f"Data for Dam ID {dam_id} saved to {csv_filename}")

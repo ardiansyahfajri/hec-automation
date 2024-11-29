@@ -49,7 +49,5 @@ models:
 shared:
   raw_folder: "data/raw"
   data_cutoff_time: "12:35"
-  username: "api-user"
-  password: ')pQ00Aa}x>RB;2?,Z}\f!l;l9!F3T=%2'
 
 
